@@ -3,10 +3,9 @@
     <div class="my-10">
         <div class="mx-auto container">
             <div class="flex justify-between mx-auto">
-                <div class="hidden md:block items-center">
-                    <img alt="Welcome" src="https://images.pexels.com/photos/1730877/pexels-photo-1730877.jpeg?auto=compress&cs=tinysrgb&w=1600" class=" py-6 items-center" />
+                <div class="hidden md:block items-center w-4/5">
+                    <img alt="Welcome" src="https://labellefeteweddings.com/wp-content/uploads/2019/09/contact-us-2.png" class=" py-6 items-center" />
                 </div>
-                
                 <div class="w-full  h-full my-6 px-5 md:px-16">
                     <div class=" text-start">
                         <h1 class="text-2xl font-semibold sm:text-3xl text-[#01452C] font-['PP_Fragment']">Contact us</h1>
@@ -21,9 +20,8 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Client fullname" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="clientName" placeholder="Client fullname"  type="text" required [(ngModel)]="booking.clientName" #clientName="ngModel" />
+                            <div *ngIf="clientName.errors?.['required'] && (clientName.dirty || clientName.touched)"
                                 class="text-red-700 text-sm">
                                 Client fullname is required.
                             </div>
@@ -32,21 +30,19 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Client contact number" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="clientContactNumber" placeholder="Client contact number" type="text" required [(ngModel)]="booking.clientContactNumber"
+                                #clientContactNumber="ngModel" />
+                            <div *ngIf="clientContactNumber.errors?.['required'] && (clientContactNumber.dirty || clientContactNumber.touched)"
                                 class="text-red-700 text-sm">
                                 Client contact number is required.
                             </div>
                         </div>
                         <div>
-                            <label for="email" class="sr-only">Email</label>
-        
                             <div class="relative">
-                                <input id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required email
-                                    name="email" #email="ngModel" type="email" placeholder="Email"
+                                <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required 
+                                     #email="ngModel" type="email" name="email" placeholder="Email"
                                     class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    [(ngModel)]="user.email " />
+                                    [(ngModel)]="booking.email" />
                                 <div *ngIf="email.errors?.['required'] && (email.dirty || email.touched)"
                                     class="text-red-700 text-sm">
                                     Email is required.
@@ -60,9 +56,9 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Groom fullname" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="groomName" placeholder="Groom fullname" type="text" required [(ngModel)]="booking.groomName"
+                               #groomName="ngModel" />
+                            <div *ngIf="groomName.errors?.['required'] && (groomName.dirty || groomName.touched)"
                                 class="text-red-700 text-sm">
                                 Groom fullname is required.
                             </div>
@@ -70,9 +66,9 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Groom contact number" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="groomContactNumber" placeholder="Groom contact number" type="text" required [(ngModel)]="booking.groomContactNumber"
+                                 #groomContactNumber="ngModel" />
+                            <div *ngIf="groomContactNumber.errors?.['required'] && (groomContactNumber.dirty || groomContactNumber.touched)"
                                 class="text-red-700 text-sm">
                                 Groom contact number is required.
                             </div>
@@ -81,8 +77,8 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Bride fullname" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
+                                name="brideName" placeholder="Bride fullname" type="text" required [(ngModel)]="booking.brideName"
+                                #brideName="ngModel" />
                             <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
                                 class="text-red-700 text-sm">
                                 Bride fullname is required.
@@ -91,9 +87,9 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Bride contact number" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="brideContactNumber" placeholder="Bride contact number" type="text" required [(ngModel)]="booking.brideContactNumber"
+                                #brideContactNumber="ngModel" />
+                            <div *ngIf="brideContactNumber.errors?.['required'] && (brideContactNumber.dirty || brideContactNumber.touched)"
                                 class="text-red-700 text-sm">
                                 Bride contact number is required.
                             </div>
@@ -101,22 +97,22 @@
                         <div class="relative">
                             <input
                                 class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                placeholder="Address" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                name="brideName" #brideName="ngModel" />
-                            <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                name="address" placeholder="Address" type="text" required [(ngModel)]="booking.address"
+                                 #address="ngModel" />
+                            <div *ngIf="address.errors?.['required'] && (address.dirty || address.touched)"
                                 class="text-red-700 text-sm">
                                 Address is required.
                             </div>
                         </div>
                         
-                        <!-- WEDDING DATE HERE -->
+                       
         
                         <div>
                             <div class="relative">
                                 <select
                                     class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    id="selectedPackage" type="text" name="selectedPackage" #selectedPackage="ngModel"
-                                    [(ngModel)]="user.selectedPackage">
+                                    type="text" #weddingType="ngModel"
+                                    [(ngModel)]="booking.weddingType">
                                     <option [ngValue]="undefined" [disabled]="true" class="text-gray-400" selected>Select
                                         Wedding type</option>
                                     <option value="Gold">Traditional Religious Weding</option>
@@ -133,8 +129,8 @@
                             <div class="relative">
                                 <select
                                     class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    id="selectedPackage" type="text" name="selectedPackage" #selectedPackage="ngModel"
-                                    [(ngModel)]="user.selectedPackage">
+                                    type="text" #weddingTheme="ngModel"
+                                    [(ngModel)]="booking.weddingTheme">
                                     <option [ngValue]="undefined" [disabled]="true" class="text-gray-400" selected>Select
                                         Wedding Theme</option>
                                     <option value="Gold">Classic</option>
@@ -155,8 +151,8 @@
                             <div class="relative">
                                 <select
                                     class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    id="selectedPackage" type="text" name="selectedPackage" #selectedPackage="ngModel"
-                                    [(ngModel)]="user.selectedPackage">
+                                    type="text" #selectedPackage="ngModel"
+                                    [(ngModel)]="booking.selectedPackage">
                                     <option [ngValue]="undefined" [disabled]="true" class="text-gray-400" selected>Select
                                         Package</option>
                                     <option value="Gold">Gold</option>
@@ -167,32 +163,32 @@
                         </div>
 
                         <div class="my-4">
-                           <h1 class="my-1"> Payment Information</h1>
-                           <div class="flex justify-between py-2">
-                            <img src="assets/img/visa.png" class="h-10" alt="">
-                            <img src="assets/img/card (1).png" class="h-10" alt="">
-                            <img src="assets/img/paypal.png" class="h-10" alt="">
-                            <img src="assets/img/american-express.png" class="h-10" alt="">
-                            <img src="assets/img/card.png" class="h-10" alt="">
+                           <h1 class=""> Payment Information</h1>
+                           <div class="flex justify-items-start space-x-3 pb-2">
+                            <img src="assets/img/visa.png" class="h-10 w-14" alt="">
+                            <img src="assets/img/card (1).png" class="h-8 w-14 mt-1" alt="">
+                            <img src="assets/img/paypal.png" class="h-10 w-14" alt="">
+                            <img src="assets/img/american-express.png" class="h-10 w-14" alt="">
+                            <img src="assets/img/card.png" class="h-8 w-14 mt-1" alt="">
                            </div>
                             <div class="relative mb-4 mt-1">
                                 <input
                                     class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                    placeholder="Card number" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                    name="brideName" #brideName="ngModel" />
-                                <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                    name="cardNumber" placeholder="Card number" type="text" required [(ngModel)]="booking.registrationFee.cardNumber"
+                                     #cardNumber="ngModel" />
+                                <div *ngIf="cardNumber.errors?.['required'] && (cardNumber.dirty || cardNumber.touched)"
                                     class="text-red-700 text-sm">
-                                    Address is required.
+                                    Card number is required
                                 </div>
                             </div>
                             <div class="relative my-4 ">
                                 <input
                                     class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                    placeholder="Fullname" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                    name="brideName" #brideName="ngModel" />
-                                <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                    name="fullName" placeholder="Fullname"  type="text" required [(ngModel)]="booking.registrationFee.fullName"
+                                     #fullName="ngModel" />
+                                <div *ngIf="fullName.errors?.['required'] && (fullName.dirty || fullName.touched)"
                                     class="text-red-700 text-sm">
-                                    Address is required.
+                                   Fullname is required.
                                 </div>
                             </div>
     
@@ -200,67 +196,45 @@
                                 <div class="relative">
                                     <input
                                         class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                        placeholder="Address" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                        name="brideName" #brideName="ngModel" />
-                                    <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                        name="expirationDate" placeholder="Exp Date ex. 12/12" type="text" required [(ngModel)]="booking.registrationFee.expirationDate"
+                                         #expirationDate="ngModel" />
+                                    <div *ngIf="expirationDate.errors?.['required'] && (expirationDate.dirty || expirationDate.touched)"
                                         class="text-red-700 text-sm">
-                                        Address is required.
+                                        Expiration date is required.
                                     </div>
                                 </div>
                                 <div class="relative">
                                     <input
                                         class="w-full  focus:border text-black focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm font-medium shadow-sm"
-                                        placeholder="Address" id="brideName" type="text" required [(ngModel)]="user.brideName"
-                                        name="brideName" #brideName="ngModel" />
-                                    <div *ngIf="brideName.errors?.['required'] && (brideName.dirty || brideName.touched)"
+                                        name="cvv" placeholder="CVV ex. 1234"  type="text" required [(ngModel)]="booking.registrationFee.cvv"
+                                        #cvv="ngModel" />
+                                    <div *ngIf="cvv.errors?.['required'] && (cvv.dirty || cvv.touched)"
                                         class="text-red-700 text-sm">
-                                        Address is required.
+                                        CVV is required.
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- <div>
-                            <label for="guestNumber" class="sr-only">Estimated guest</label>
-        
-                            <div class="relative">
-                                <input type="number" id="guestNumber" required name="guestNumber" #guestNumber="ngModel"
-                                    class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    [(ngModel)]="user.guestNumber" placeholder="Estimated guest" />
-                                <div *ngIf="guestNumber.errors?.['required'] && (guestNumber.dirty || guestNumber.touched)"
-                                    class="text-red-700 text-sm">
-                                    Guest number is required.
-                                </div>
-                            </div>
-                        </div> -->
+                       
                         <div>
-                            <label for="guestNumber" class="sr-only">Estimated guest</label>
+                            
         
                             <div class="relative">
-                                <input type="number" id="guestNumber" required name="guestNumber" #guestNumber="ngModel"
+                                <input type="number" required #amountFee="ngModel"
                                     class="w-full focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    [(ngModel)]="user.guestNumber" placeholder="Registration Php 5,000 cash" />
+                                    [(ngModel)]="booking.registrationFee.amountFee" name="" placeholder="Registration Php 5,000 cash" />
                                     <div 
                                     class="text-red-700 text-sm">
                                     *Please provide a cash for your registration fee. This is non refundable.
                                 </div>
-                                <div *ngIf="guestNumber.errors?.['required'] && (guestNumber.dirty || guestNumber.touched)"
+                                <div *ngIf="amountFee.errors?.['required'] && (amountFee.dirty || amountFee.touched)"
                                     class="text-red-700 text-sm">
-                                    Guest number is required.
+                                    Amount fee is required.
                                 </div>
         
                             </div>
                         </div>
-                        <div>
-                            <label for="message" class="sr-only">Message (Optional) </label>
-        
-                            <div class="relative">
-                                <textarea
-                                    class="w-full h-28 focus:border focus:border-[#E8AAAD] focus:outline-none border  border-[#E8AAAD] p-2 pe-12 text-sm shadow-sm"
-                                    id="message" [(ngModel)]="user.message" name="message"
-                                    placeholder="Additional message (Optional) ">
-                                </textarea>
-                            </div>
-                        </div>
+                       
                         <div class="flex items-center justify-between">
                             <button type="submit" class="inline-block  px-8 py-2 text-sm font-medium text-white bg-[#E8AAAD]"
                                 [disabled]="userForm.form.invalid">

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
+import { RegistrationFee } from './../../model/registration-fee';
+import { Booking } from 'src/app/model/booking.model';
 
 @Component({
   selector: 'app-contact',
@@ -14,18 +16,20 @@ export class ContactComponent {
   constructor(private userService: UserService, private myRoute: Router) { }
 
   user: User = new User();
-
-
+  booking : Booking = new Booking();
+  registrationFee : RegistrationFee = new RegistrationFee();
 
   onSubmit() {
-
-    this.userService.sendInquiry(this.user).subscribe(
-      (response) => {
-        this.successAlert()
-      }, (error) => {
-        console.log(error);
-      }
-    )
+    
+    // this.userService.sendInquiry(this.user).subscribe(
+    //   (response) => {
+    //     this.successAlert()
+    //   }, (error) => {
+    //     console.log(error);
+    //   }
+    // )
+    console.log(this.booking);
+    
   }
 
   successAlert() {
@@ -44,6 +48,6 @@ export class ContactComponent {
 
   isValidGmail(email: string): boolean {
     return email?.toLowerCase().endsWith('@gmail.com');
-
   }
+
 }
