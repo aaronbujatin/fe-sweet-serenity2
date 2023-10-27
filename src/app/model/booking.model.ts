@@ -17,6 +17,6 @@ export class Booking {
     ceremonyVenue : string;
     receptionVenue : string;
     selectedPackage : string;
-    registrationFee : RegistrationFee;
+    registrationFee : RegistrationFee = new RegistrationFee();
     
 }

@@ -13,14 +13,17 @@ import { Booking } from 'src/app/model/booking.model';
 })
 export class ContactComponent {
 
-  constructor(private userService: UserService, private myRoute: Router) { }
+  constructor(private userService: UserService, private myRoute: Router) {
+    this.booking = new Booking();
+    this.registrationFee = new RegistrationFee();
+  }
 
-  user: User = new User();
-  booking : Booking = new Booking();
-  registrationFee : RegistrationFee = new RegistrationFee();
+
+  booking: Booking;
+  registrationFee: RegistrationFee;
 
   onSubmit() {
-    
+
     // this.userService.sendInquiry(this.user).subscribe(
     //   (response) => {
     //     this.successAlert()
@@ -29,7 +32,9 @@ export class ContactComponent {
     //   }
     // )
     console.log(this.booking);
-    
+
+
+
   }
 
   successAlert() {
