@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'fe-sweet-serenity2';
+  title = 'fe-sweet-serenity';
+
+  ngOnInit(): void {
+    initFlowbite();
+  }
+
 }
