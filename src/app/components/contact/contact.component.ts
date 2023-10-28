@@ -55,4 +55,9 @@ export class ContactComponent {
     return email?.toLowerCase().endsWith('@gmail.com');
   }
 
+  onDateChange(event: any) {
+    // You can access the selected date via this.booking.weddingDate
+    console.log('Selected Wedding Date:', this.booking.weddingDate);
+  }
+
 }

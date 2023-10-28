@@ -11,7 +11,7 @@ export class Booking {
     brideName : string
     brideContactNumber : string
     address : string
-    //wedding date
+    weddingDate : string;
     weddingType : string;
     weddingTheme : string;
     ceremonyVenue : string;
