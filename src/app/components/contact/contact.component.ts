@@ -5,6 +5,7 @@ import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
 import { RegistrationFee } from './../../model/registration-fee';
 import { Booking } from 'src/app/model/booking.model';
+import { BookingService } from 'src/app/service/booking.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,9 @@ import { Booking } from 'src/app/model/booking.model';
 })
 export class ContactComponent {
 
-  constructor(private userService: UserService, private myRoute: Router) {
+  constructor(private userService: UserService, 
+    private myRoute: Router, 
+    private bookingService : BookingService) {
     this.booking = new Booking();
     this.registrationFee = new RegistrationFee();
   }
@@ -24,13 +27,16 @@ export class ContactComponent {
 
   onSubmit() {
 
-    // this.userService.sendInquiry(this.user).subscribe(
-    //   (response) => {
-    //     this.successAlert()
-    //   }, (error) => {
-    //     console.log(error);
-    //   }
-    // )
+    this.bookingService.save(this.booking).subscribe(
+      (response) => {
+        console.log(response);
+        this.successAlert()
+      }, (error) => {
+        console.log(error);
+        
+      }
+    )
+
     console.log(this.booking);
 
 
