@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import { RegistrationFee } from './../../model/registration-fee';
 import { Booking } from 'src/app/model/booking.model';
 import { BookingService } from 'src/app/service/booking.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -14,9 +15,9 @@ import { BookingService } from 'src/app/service/booking.service';
 })
 export class ContactComponent {
 
-  constructor(private userService: UserService, 
-    private myRoute: Router, 
-    private bookingService : BookingService) {
+  constructor(private userService: UserService,
+    private myRoute: Router,
+    private bookingService: BookingService) {
     this.booking = new Booking();
     this.registrationFee = new RegistrationFee();
   }
@@ -24,24 +25,31 @@ export class ContactComponent {
 
   booking: Booking;
   registrationFee: RegistrationFee;
-
+  bookingForm: NgForm
   onSubmit() {
 
-    this.bookingService.save(this.booking).subscribe(
-      (response) => {
-        console.log(response);
-        this.successAlert()
-      }, (error) => {
-        console.log(error);
-        
-      }
-    )
+    if (this.bookingForm && this.bookingForm.valid) {
+      this.bookingService.save(this.booking).subscribe(
+        (response) => {
+
+          console.log(response);
+          this.successAlert()
+        }, (error) => {
+          console.log(error);
+        }
+      )
+    } else {
+      this.ErrorInputFillAlert()
+    }
 
     console.log(this.booking);
 
 
 
   }
+
+
+
 
   successAlert() {
     Swal.fire({
@@ -57,6 +65,16 @@ export class ContactComponent {
     });
   }
 
+  ErrorInputFillAlert() {
+    Swal.fire({
+      text: "Please fill the inputs",
+      icon: "warning",
+      confirmButtonText: "OK",
+      showCloseButton: true,
+      confirmButtonColor: '#E8AAAD',
+    })
+  }
+
   isValidGmail(email: string): boolean {
     return email?.toLowerCase().endsWith('@gmail.com');
   }
@@ -66,6 +84,6 @@ export class ContactComponent {
     console.log('Selected Wedding Date:', this.booking.weddingDate);
   }
 
- 
+
 
 }

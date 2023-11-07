@@ -15,6 +15,6 @@ export class BookingService {
   private LOCAL_API = "http://localhost:8080"
 
   public save(booking : Booking){
-    return this.htttpClient.post(`${this.API_URL}/api/v1/bookings`, booking);
+    return this.htttpClient.post(`${this.LOCAL_API}/api/v1/bookings`, booking);
   }
 }
