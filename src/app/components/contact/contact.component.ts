@@ -11,7 +11,6 @@ import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
 
@@ -25,10 +24,8 @@ export class ContactComponent {
 
   booking: Booking;
   registrationFee: RegistrationFee;
-  bookingForm: NgForm
-  onSubmit() {
 
-    if (this.bookingForm && this.bookingForm.valid) {
+  onSubmit() {
       this.bookingService.save(this.booking).subscribe(
         (response) => {
 
@@ -38,9 +35,7 @@ export class ContactComponent {
           console.log(error);
         }
       )
-    } else {
-      this.ErrorInputFillAlert()
-    }
+ 
 
     console.log(this.booking);
 
