@@ -26,9 +26,17 @@ export class ContactComponent {
   registrationFee: RegistrationFee;
 
   onSubmit() {
+    this.booking.eventName = ""
+    this.booking.groomName = ""
+    this.booking.groomContactNumber = ""
+    this.booking.brideName = ""
+    this.booking.brideContactNumber = ""
+    this.booking.address = ""
+    this.booking.weddingDate = null
+    this.booking.weddingType = null
+    this.booking.weddingTheme = null
       this.bookingService.save(this.booking).subscribe(
         (response) => {
-
           console.log(response);
           this.successAlert()
         }, (error) => {
