@@ -25,25 +25,42 @@ export class ContactComponent {
   booking: Booking;
   registrationFee: RegistrationFee;
 
+  goldPackageRate = 350000;
+  emeraldPackageRate = 450000;
+  diamondPackageRate = 550000;
+
   onSubmit() {
-    this.booking.eventName = ""
     this.booking.groomName = ""
     this.booking.groomContactNumber = ""
     this.booking.brideName = ""
     this.booking.brideContactNumber = ""
     this.booking.address = ""
+    this.booking.receptionVenue = ""
     this.booking.weddingDate = null
     this.booking.weddingType = null
     this.booking.weddingTheme = null
-      this.bookingService.save(this.booking).subscribe(
-        (response) => {
-          console.log(response);
-          this.successAlert()
-        }, (error) => {
-          console.log(error);
-        }
-      )
- 
+
+    if (this.booking.selectedPackage === 'Gold') {
+      this.booking.packageRate = this.goldPackageRate
+      this.booking.balance = this.goldPackageRate - 5000;
+    } else if (this.booking.selectedPackage === 'Emerald') {
+      this.booking.packageRate = this.emeraldPackageRate
+      this.booking.balance = this.emeraldPackageRate - 5000;
+    } else if (this.booking.selectedPackage === 'Diamond') {
+      this.booking.packageRate = this.diamondPackageRate
+      this.booking.balance = this.diamondPackageRate - 5000;
+    }
+
+    this.bookingService.save(this.booking).subscribe(
+      (response) => {
+        console.log(response);
+        this.successAlert()
+      }, (error) => {
+        console.log(error);
+        this.eventNameAlreadyExistsAlert()
+      }
+    )
+
 
     console.log(this.booking);
 
@@ -65,6 +82,16 @@ export class ContactComponent {
       if (result.isConfirmed) {
         this.myRoute.navigate([""]);
       }
+    });
+  }
+
+  eventNameAlreadyExistsAlert() {
+    Swal.fire({
+      text: "Event name already exist, Please select another.",
+      icon: "error",
+      confirmButtonText: "OK",
+      showCloseButton: true,
+      confirmButtonColor: '#E8AAAD',
     });
   }
 

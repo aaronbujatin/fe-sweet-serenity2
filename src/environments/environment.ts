@@ -1,3 +1,3 @@
 export const environment = {
-    baseUrl : "https://striped-act-production.up.railway.app"
+    baseUrl : "https://be-aems-production.up.railway.app"
 };
