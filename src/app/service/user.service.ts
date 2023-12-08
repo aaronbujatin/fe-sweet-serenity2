@@ -10,10 +10,12 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  private API_URL = environment.baseUrl;           
+  private API_URL = environment.baseUrl;
 
 
   public sendInquiry(user: User) {
     return this.httpClient.post<any>(`${this.API_URL}/api/v1/users`, user);
   }
+
+
 }
