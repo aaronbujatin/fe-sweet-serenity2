@@ -28,6 +28,7 @@ export class ContactComponent {
   goldPackageRate = 350000;
   emeraldPackageRate = 450000;
   diamondPackageRate = 550000;
+  amountPaid = 5000;
 
   onSubmit() {
     this.booking.groomName = ""
@@ -39,16 +40,17 @@ export class ContactComponent {
     this.booking.weddingDate = null
     this.booking.weddingType = null
     this.booking.weddingTheme = null
-
+    this.booking.amountPaid = this.amountPaid
+    
     if (this.booking.selectedPackage === 'Gold') {
       this.booking.packageRate = this.goldPackageRate
-      this.booking.balance = this.goldPackageRate - 5000;
+      this.booking.balance = this.goldPackageRate - this.amountPaid;
     } else if (this.booking.selectedPackage === 'Emerald') {
       this.booking.packageRate = this.emeraldPackageRate
-      this.booking.balance = this.emeraldPackageRate - 5000;
+      this.booking.balance = this.emeraldPackageRate - this.amountPaid;
     } else if (this.booking.selectedPackage === 'Diamond') {
       this.booking.packageRate = this.diamondPackageRate
-      this.booking.balance = this.diamondPackageRate - 5000;
+      this.booking.balance = this.diamondPackageRate - this.amountPaid;
     }
 
     this.bookingService.save(this.booking).subscribe(
